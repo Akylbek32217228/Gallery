@@ -10,7 +10,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val myWorkRequest = PeriodicWorkRequest.Builder(MyWorker::class.java, 24, TimeUnit.HOURS)
+        val myWorkRequest = PeriodicWorkRequest.Builder(MyWorker::class.java, 1440, TimeUnit.MINUTES)
             .build()
         WorkManager.getInstance().enqueue(myWorkRequest);
     }
