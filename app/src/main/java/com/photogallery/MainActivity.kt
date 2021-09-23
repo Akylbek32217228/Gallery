@@ -57,11 +57,14 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView{
 
 
     override fun getPhotos() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.emptyPackage.visibility = View.INVISIBLE
         mainActivityPresenter.getPhotos()
     }
 
     override fun showPhotos(list: List<PhotoEntity>) {
         adapter.photoList.clear()
+        binding.progressBar.visibility = View.INVISIBLE
         if(list.size == 0) {
             binding.emptyPackage.visibility = View.VISIBLE
             Log.d("ololo", "Empty")
